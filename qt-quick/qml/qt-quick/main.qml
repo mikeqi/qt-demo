@@ -2,7 +2,9 @@ import QtQuick 2.0
 import QtQuick.Controls 1.1
 import backend 1.0
 
-Rectangle {
+ApplicationWindow
+{
+    visible: true
     width: 360
     height: 360
     Text {

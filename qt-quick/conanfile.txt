@@ -1,0 +1,8 @@
+[requires]
+Qt/5.6.2@osechet/testing
+
+[options]
+# If you need specific Qt modules, you can add them as follow:
+
+[generators]
+cmake
