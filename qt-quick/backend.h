@@ -4,22 +4,42 @@
 #include <QObject>
 #include <QString>
 
+
+
 class BackEnd : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
-
+    Q_PROPERTY(double throttle READ throttle WRITE setThrottle NOTIFY throttleChanged)
+    Q_PROPERTY(double brake READ brake WRITE setBrake NOTIFY brakeChanged)
+    Q_PROPERTY(double steeringAngle READ steeringAngle WRITE setSteeringAngle NOTIFY steeringAngleChanged)
+//    Q_PROPERTY(double steeringLimit READ steeringLimit WRITE setSteeringLimit NOTIFY steeringLimitChanged)
 public:
     explicit BackEnd(QObject *parent = nullptr);
 
-    QString userName();
-    void setUserName(const QString &userName);
+    double throttle();
+    void setThrottle(double val);
+
+    double brake();
+    void setBrake(double val);
+
+    double steeringAngle();
+    void  setSteeringAngle(double val);
+
+//    double steeringLimit();
+//    void setSteeringLimit(double val);
 
 signals:
-    void userNameChanged();
+    void throttleChanged();
+    void brakeChanged();
+    void steeringAngleChanged();
+//    void steeringLimitChanged();
 
 private:
-    QString m_userName;
+    double m_throttle;
+    double m_brake;
+    double m_steeringAngle;
+//    double m_steeringLimit;
+
 };
 
 #endif // BACKEND_H
