@@ -1,8 +1,31 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml>
+#include <iostream>
 //#include "qtquick2applicationviewer.h"
 
 #include "backend.h"
+
+
+void *tloop(void *ctx)
+{
+//    msg = context->messg;
+//    struct Context *context = (struct Context *)ctx;
+//    while (!context->exit_flag) {
+////        cout << "." << endl;
+//        sleep(1);
+//    }
+    while(1)
+        std::cout << "." << std::endl;
+    return(NULL);
+//    pthread_exit(NULL);
+}
+
+void spawnControl() {
+    pthread_t tid;
+        pthread_create(&tid, NULL, tloop, (void*)NULL);
+
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +38,9 @@ int main(int argc, char *argv[])
 //    viewer.showExpanded();
     QQmlApplicationEngine engine;
 //   // engine.load(Qurl(QStringLiteral("../qml/qt-quick/main.qml")));
-    engine.load(QUrl(QStringLiteral("qml/qt-quick/main.qml")));
+    engine.load(QUrl(QStringLiteral("../qml/qt-quick/main.qml")));
+
+    spawnControl();
 
     return app.exec();
 }

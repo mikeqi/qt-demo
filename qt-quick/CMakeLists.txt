@@ -17,4 +17,6 @@ add_executable(${PROJECT_NAME} main.cpp backend.cpp ${RESOURCES})
 qt5_use_modules(${PROJECT_NAME} Quick Core Network)
 #find_package(Qt5QuickCompiler)
 #qtquick_compiler_add_resources(RESOURCES )
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Qml Qt5::Quick)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Qml Qt5::Quick
+        pthread
+        )
